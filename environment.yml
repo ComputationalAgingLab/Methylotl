@@ -1,7 +1,11 @@
-name: methylotl
+name: methylotl_env
 channels:
   - bioconda
   - conda-forge
 dependencies:
+  - python=3.10
+  - fastqc
+  - trim-galore
   - samtools
+  - pysam
   - methyldackel

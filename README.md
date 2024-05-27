@@ -17,33 +17,25 @@ Methylotl is a Python package designed to process raw bisulfite sequencing data.
 
 - Required Python packages: `pysam`
 
-- External tools: `bsmapz`, `samtools`, `methyldackel`
+- External tools: `fastqc`, `trimgalore`, `bsmapz`, `samtools`, `methyldackel`
 
-**Note:** This script is designed to run on Linux distributions like Ubuntu 22.04. It may not work as expected on other operating systems.
+**Note:** This tool has been tested and is confirmed to work correctly on Debian-like distributions.
 
 ## Installation
 
 1. Clone the repository:
 
-   ```{bash}
-   git clone https://github.com/yourusername/Methylotl.git
-   cd Methylotl
-   ```
+```{bash}
+git clone https://github.com/yourusername/Methylotl.git
+cd Methylotl
+```
 
-2.  Environment configurationvia conda or mamba:
+2.  Run the install.sh script to create a conda environment and install the necessary tools:
 
-   ```{bash}
-   conda env create -n methylotl_env -f environment.yml
-   conda activate methylotl_env
-   ```
-
-3. Ensure that `bsmapz` is installed and accessible in your PATH.
-
-   ```{bash}
-   export PATH=$PATH:/path/to/bsmapz
-   ```
-
-   
+```{bash}
+chmod +x install.sh
+./install.sh
+```
 
 ## Usage
 
@@ -62,9 +54,9 @@ python Methylotl.py process --input_dir /path/to/input --output_dir /path/to/out
 
 ### Command-Line Arguments
 
-- `index`: Index the genome.
-- `process`: Process reads.
+* `index`: Index the genome.
 - `--genome`: Path to the reference genome file.
+* `process`: Process reads.
 - `--threads`: Number of threads to use (default: 8).
 - `--input_dir`: Absolute path to the input folder.
 - `--output_dir`: Absolute path to the output folder.
@@ -91,7 +83,7 @@ Contributions are welcome! Please fork the repository and submit pull requests w
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+This project is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. See the `LICENSE` file for more details.
 
 ## Contact
 
