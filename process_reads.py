@@ -173,6 +173,13 @@ def process_oneline_files(files: List[str], platform_output1: str, platform_outp
     with open(logpath, "a") as logfile:
         subprocess.run(deduplicate_command, stdout=logfile, stderr=subprocess.STDOUT, text=True)
 
+    # Collect stats
+    collect_stats_command = [
+        "samtools", "flagstat", os.path.join(aligning_dir, f"{name}.sorted.deduplicated.bam")
+    ]
+    with open(logpath, "a") as logfile:
+        subprocess.run(collect_stats_command, stdout=logfile, stderr=subprocess.STDOUT, text=True)
+
     # Methylation extraction
     print("Methylation extraction...")
     extraction_dir = os.path.join(output_dir, "methyl_extraction")
@@ -319,6 +326,13 @@ def process_multiline_files(files: List[str], platform_output1: str, platform_ou
     with open(logpath, "a") as logfile:
         subprocess.run(merge_bams_command, stdout=logfile, stderr=subprocess.STDOUT, text=True)
 
+    #Collect stats
+    collect_stats_command = [
+        "samtools", "flagstat", os.path.join(aligning_dir, f"{name}.sorted.deduplicated.bam")
+    ]
+    with open(logpath, "a") as logfile:
+        subprocess.run(collect_stats_command, stdout=logfile, stderr=subprocess.STDOUT, text=True)
+
     # Methylation extraction
     print("Methylation extraction...")
     extraction_dir = os.path.join(output_dir, "methyl_extraction")
@@ -400,3 +414,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args)
+

@@ -27,3 +27,4 @@ if __name__ == "__main__":
         raise FileNotFoundError("Genome file not found.")
     else:
         index_genome(genome_file)
+
