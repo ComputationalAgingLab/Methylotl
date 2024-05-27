@@ -1,0 +1,7 @@
+name: methylotl
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - samtools
+  - methyldackel
